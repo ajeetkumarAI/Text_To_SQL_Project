@@ -2,6 +2,8 @@
 
 A Streamlit web app that converts natural language business questions into SQL queries, executes them on a MySQL database, and displays the results. It uses a local schema index and the standard OpenAI API.
 
+![QueryHarbor application screenshot](assets/text_to_speech.png)
+
 ## Architecture
 
 ```mermaid
