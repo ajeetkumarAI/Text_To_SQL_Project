@@ -26,7 +26,7 @@ A Streamlit web app that converts natural language business questions into SQL q
 
 ```sh
 git clone <your-repo-url>
-cd sql_assistant_by_aaitech
+cd sql_assistant
 ```
 
 ### 2. Install dependencies
