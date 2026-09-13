@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1",
+    "type": "table",
+    "name": "customers",
+    "description": "Stores information about customers including their ID, company name, contact name, city, and country.",
+    "columns": "customer_id, company_name, contact_name, city, country"
+  },
+  {
+    "id": "2",
+    "type": "table",
+    "name": "suppliers",
+    "description": "Contains details about product suppliers such as supplier ID, company, contact, city, and country.",
+    "columns": "supplier_id, company_name, contact_name, city, country"
+  },
+  {
+    "id": "3",
+    "type": "table",
+    "name": "products",
+    "description": "Includes product-level data including name, category, price, and associated supplier ID.",
+    "columns": "product_id, product_name, supplier_id, category, unit_price"
+  },
+  {
+    "id": "4",
+    "type": "table",
+    "name": "orders",
+    "description": "Holds information about customer orders including order ID, customer ID, order date, city, and freight charges(Shipping Costs).",
+    "columns": "order_id, customer_id, order_date, ship_city, freight"
+  },
+  {
+    "id": "5",
+    "type": "table",
+    "name": "order_details",
+    "description": "Links products to orders with quantity and unit price for each ordered product.",
+    "columns": "order_id, product_id, quantity, unit_price"
+  },
+  {
+    "id": "6",
+    "type": "relationship",
+    "name": "customers-orders",
+    "description": "Each customer can have multiple orders. Linked via customer_id.",
+    "columns": ""
+  },
+  {
+    "id": "7",
+    "type": "relationship",
+    "name": "orders-order_details",
+    "description": "Each order can contain multiple products. Linked via order_id.",
+    "columns": ""
+  },
+  {
+    "id": "8",
+    "type": "relationship",
+    "name": "products-order_details",
+    "description": "Each product can appear in multiple orders. Linked via product_id.",
+    "columns": ""
+  },
+  {
+    "id": "9",
+    "type": "relationship",
+    "name": "products-suppliers",
+    "description": "Each product is supplied by one supplier. Linked via supplier_id.",
+    "columns": ""
+  }
+]

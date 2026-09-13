@@ -1,0 +1,10 @@
+id,type,name,description,columns
+1,table,customers,"Stores information about customers including their ID, company name, contact name, city, and country.","customer_id, company_name, contact_name, city, country"
+2,table,suppliers,"Contains details about product suppliers such as supplier ID, company, contact, city, and country.","supplier_id, company_name, contact_name, city, country"
+3,table,products,"Includes product-level data including name, category, price, and associated supplier ID.","product_id, product_name, supplier_id, category, unit_price"
+4,table,orders,"Holds information about customer orders including order ID, customer ID, order date, city, and freight charges(Shipping Costs).","order_id, customer_id, order_date, ship_city, freight"
+5,table,order_details,Links products to orders with quantity and unit price for each ordered product.,"order_id, product_id, quantity, unit_price"
+6,relationship,customers-orders,Each customer can have multiple orders. Linked via customer_id.,
+7,relationship,orders-order_details,Each order can contain multiple products. Linked via order_id.,
+8,relationship,products-order_details,Each product can appear in multiple orders. Linked via product_id.,
+9,relationship,products-suppliers,Each product is supplied by one supplier. Linked via supplier_id.,
