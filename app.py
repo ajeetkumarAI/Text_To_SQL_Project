@@ -2,7 +2,7 @@ import streamlit as st
 from text_to_sql import question_to_sql
 from database import execute_query
 
-st.set_page_config(page_title="Text to SQL Assistant", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Text to SQL Assistant", layout="centered")
 
 # Custom CSS for enhanced look and feel
 st.markdown(
@@ -78,13 +78,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Sidebar with company info (with AI/text-to-SQL themed image)
+# Sidebar with company information
 st.sidebar.markdown(
     """
-    <div style='text-align:center; margin-bottom:1rem;'>
-        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png"
-             alt="AI Text to SQL Agent" style="width:90%; max-width:180px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.07); margin-bottom:0.7rem;">
-    </div>
     <h3 style='color:#2563eb;'>Northstar Data Studio</h3>
     <p style='color:#64748b;'>Empowering business intelligence with AI-driven automation.</p>
     <hr>
@@ -96,7 +92,7 @@ st.sidebar.markdown(
 # Main header and subtitle
 st.markdown('<div class="company-header">Northstar Data Studio</div>', unsafe_allow_html=True)
 st.markdown(
-    "<div style='font-size:2rem; color:#64748b; text-align:center; margin-bottom:1.2rem; border-bottom:none;'>🤖 Text to SQL Assistant</div>",
+    "<div style='font-size:2rem; color:#64748b; text-align:center; margin-bottom:1.2rem; border-bottom:none;'>Text to SQL Assistant</div>",
     unsafe_allow_html=True,
 )
 
@@ -129,7 +125,7 @@ with st.container():
         greetings = ["hi", "hello", "hey"]
         user_question = st.session_state["question_value"].strip()
         if user_question.lower() in greetings:
-            st.success("Hello, welcome to Northstar Data Studio! 👋\n\nHow can I assist you today?")
+            st.success("Hello, welcome to Northstar Data Studio!\n\nHow can I assist you today?")
         else:
             with st.spinner("Generating SQL and fetching results..."):
                 try:
