@@ -1,4 +1,4 @@
-# Text to SQL Assistant for Northstar Data Studio
+# QueryHarbor: Text to SQL Assistant
 
 A Streamlit web app that converts natural language business questions into SQL queries, executes them on a MySQL database, and displays the results. It uses a local schema index and the standard OpenAI API.
 

@@ -81,7 +81,7 @@ st.markdown(
 # Sidebar with company information
 st.sidebar.markdown(
     """
-    <h3 style='color:#2563eb;'>Northstar Data Studio</h3>
+    <h3 style='color:#2563eb;'>QueryHarbor</h3>
     <p style='color:#64748b;'>Empowering business intelligence with AI-driven automation.</p>
     <hr>
     <p style='font-size:0.95rem;'>Local text-to-SQL workspace</p>
@@ -90,7 +90,7 @@ st.sidebar.markdown(
 )
 
 # Main header and subtitle
-st.markdown('<div class="company-header">Northstar Data Studio</div>', unsafe_allow_html=True)
+st.markdown('<div class="company-header">QueryHarbor</div>', unsafe_allow_html=True)
 st.markdown(
     "<div style='font-size:2rem; color:#64748b; text-align:center; margin-bottom:1.2rem; border-bottom:none;'>Text to SQL Assistant</div>",
     unsafe_allow_html=True,
@@ -125,7 +125,7 @@ with st.container():
         greetings = ["hi", "hello", "hey"]
         user_question = st.session_state["question_value"].strip()
         if user_question.lower() in greetings:
-            st.success("Hello, welcome to Northstar Data Studio!\n\nHow can I assist you today?")
+            st.success("Hello, welcome to QueryHarbor!\n\nHow can I assist you today?")
         else:
             with st.spinner("Generating SQL and fetching results..."):
                 try:
