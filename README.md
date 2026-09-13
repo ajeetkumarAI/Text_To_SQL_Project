@@ -2,6 +2,40 @@
 
 A Streamlit web app that converts natural language business questions into SQL queries, executes them on a MySQL database, and displays the results. It uses a local schema index and the standard OpenAI API.
 
+## Architecture
+
+```mermaid
+flowchart TD
+	User[User asks a question] --> App[Streamlit app.py]
+	App --> SQL[text_to_sql.py]
+
+	CSV[Schema CSV file] --> Builder[create_and_upload_index.py]
+	Builder --> Index[data/schema_index.json]
+	Index --> SQL
+
+	SQL --> OpenAI[OpenAI API]
+	OpenAI --> Query[Generated SQL query]
+	Query --> Database[MySQL database]
+	Database --> Results[Query results]
+	Results --> App
+	App --> User
+
+	Env[.env settings] --> SQL
+	Env --> Database
+```
+
+### How It Works
+
+1. The user enters a business question in the Streamlit interface.
+2. `app.py` sends the question to `text_to_sql.py`.
+3. `text_to_sql.py` searches `data/schema_index.json` for relevant tables and columns.
+4. The question and schema details are sent to OpenAI.
+5. OpenAI returns a SQL query.
+6. `database.py` connects to MySQL and executes the query against the real database.
+7. The query results are returned to Streamlit and shown to the user.
+
+The schema index contains table descriptions only. It does not contain the actual customer, order, product, or supplier records. The real records remain in MySQL.
+
 ## Features
 
 - Ask business questions in plain English.
@@ -56,6 +90,12 @@ streamlit run app.py
 - Open the Streamlit app in your browser.
 - Enter a business question (e.g., "Show total orders by country").
 - View the generated SQL and query results.
+
+Example questions:
+
+- What is the total shipping cost for each city?
+- What is the total quantity sold for each product?
+- How many orders has each customer placed?
 
 ## Requirements
 
