@@ -1,6 +1,6 @@
 import streamlit as st
-from text_to_sql import question_to_sql
-from database import execute_query
+from src.database import execute_query
+from src.text_to_sql import question_to_sql
 
 st.set_page_config(page_title="Text to SQL Assistant", layout="centered")
 

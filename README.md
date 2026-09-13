@@ -48,10 +48,12 @@ The schema index contains table descriptions only. It does not contain the actua
 
 ## Project Structure
 
-- `app.py` — Main Streamlit app.
-- `text_to_sql.py` — Converts questions to SQL using OpenAI and the local schema index.
-- `database.py` — Handles MySQL connection and query execution.
-- `create_and_upload_index.py` — Builds the local schema index from the CSV file.
+- `app.py` — Streamlit user interface and application entry point.
+- `create_project_structure.py` — Creates the project folders and missing files safely.
+- `src/templates.py` — Stores the SQL generation prompt template.
+- `src/text_to_sql.py` — Converts questions to SQL using OpenAI and the local schema index.
+- `src/database.py` — Handles MySQL connection and query execution.
+- `src/create_and_upload_index.py` — Builds the local schema index from the CSV file.
 - `data/` — Contains CSVs and schema SQL for the sample database.
 - `.env` — Environment variables for API keys and DB credentials.
 - `requirements.txt` — Python dependencies.
@@ -65,23 +67,31 @@ git clone <your-repo-url>
 cd sql_assistant
 ```
 
-### 2. Install dependencies
+### 2. Create the project structure
+
+```sh
+python create_project_structure.py
+```
+
+The script creates missing folders and files and keeps existing non-empty files unchanged.
+
+### 3. Install dependencies
 
 ```sh
 pip install -r requirements.txt
 ```
 
-### 3. Configure environment variables
+### 4. Configure environment variables
 
 - Copy `.env` and fill in your OpenAI API key and MySQL credentials. Set `OPENAI_MODEL` to choose a different OpenAI model.
 
-### 4. Build the local schema index
+### 5. Build the local schema index
 
 ```sh
-python create_and_upload_index.py
+python -m src.create_and_upload_index
 ```
 
-### 5. Run the app
+### 6. Run the app
 
 ```sh
 streamlit run app.py
